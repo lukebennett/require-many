@@ -1,0 +1,16 @@
+{
+  "name": "require-directory",
+  "description": "Require all modules in a single directory",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lukebennett/require-directory/",
+  "author": {
+    "name": "Luke Bennett",
+    "email": "luke@lukebennett.com",
+    "url": "http://lukebennett.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lukebennett/require-directory.git"
+  },
+  "keywords": ["require","module","directory"]
+}
