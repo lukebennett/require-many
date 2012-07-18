@@ -1,8 +1,8 @@
 {
-  "name": "require-directory",
-  "description": "Require all modules in a single directory",
+  "name": "require-many",
+  "description": "Require multiple modules from a single directory at once",
   "version": "0.1.0",
-  "homepage": "https://github.com/lukebennett/require-directory/",
+  "homepage": "https://github.com/lukebennett/require-many/",
   "author": {
     "name": "Luke Bennett",
     "email": "luke@lukebennett.com",
@@ -10,7 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/lukebennett/require-directory.git"
+    "url": "git://github.com/lukebennett/require-many.git"
   },
-  "keywords": ["require","module","directory"]
+  "keywords": ["require","module","directory","library"],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/lukebennett/require-many/issues/"
+  }
 }

@@ -1,33 +1,33 @@
-# require-directory
+# require-many
 
-Requires all modules in a given directory.
+Require multiple modules from a single directory at once.
 
 ## Installation
 
-`npm install require-directory`
+`npm install require-many`
 
 ## Usage
 
 ```js
-require('require-directory')(dirname[, options][, iterator][, callback])
+require('require-many')(dirname[, options][, iterator][, callback])
 ```
 
 ## Examples
 
-```javascript
+```js
 var path = require('path')
-  , requireDirectory = require('require-directory')
+  , requireMany = require('require-many')
   , modules;
 
 // Return all modules as properties of an object
 // (property name is exported function name if specified, otherwise the filename)
-modules = requireDirectory(path.resolve(__dirname, './lib'));
+modules = requireMany(path.resolve(__dirname, './lib'));
 
 // Return all modules as an array
-modules = requireDirectory(path.resolve(__dirname, './lib'), { asArray: true });
+modules = requireMany(path.resolve(__dirname, './lib'), { asArray: true });
 
 // Pass a predicate to only require certain files within the directory
-modules = requireDirectory(path.resolve(__dirname, './lib'), {
+modules = requireMany(path.resolve(__dirname, './lib'), {
   predicate: function(file) {
     // Exclude any files beginning with an underscore
     return file[0] !== '_';
@@ -35,7 +35,7 @@ modules = requireDirectory(path.resolve(__dirname, './lib'), {
 });
 
 // Apply an iterator to each module and pass a callback
-requireDirectory(path.resolve(__dirname, './lib'), function(module, next) {
+requireMany(path.resolve(__dirname, './lib'), function(module, next) {
   // Do something with module
   next();
 }, function(err) {

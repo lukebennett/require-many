@@ -1,1 +1,1 @@
-module.exports = require('./lib/require-directory.js');
+module.exports = require('./lib/require-many.js');
