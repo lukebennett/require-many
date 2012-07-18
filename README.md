@@ -1,6 +1,6 @@
 # require-many
 
-Require multiple modules from a single directory at once.
+Require multiple modules at once.
 
 ## Installation
 
@@ -9,7 +9,7 @@ Require multiple modules from a single directory at once.
 ## Usage
 
 ```js
-require('require-many')(dirname[, options][, iterator][, callback])
+require('require-many')(dirs[, options][, iterator][, callback])
 ```
 
 ## Examples
@@ -25,6 +25,12 @@ modules = requireMany(path.resolve(__dirname, './lib'));
 
 // Return all modules as an array
 modules = requireMany(path.resolve(__dirname, './lib'), { asArray: true });
+
+// Recurse down through directory and require modules from sub-directories
+modules = requireMany(path.resolve(__dirname, './lib'), { recurse: true });
+
+// Return all modules from multiple directories
+modules = requireMany([path.resolve(__dirname, './lib'), path.resolve(__dirname, './other')]);
 
 // Pass a predicate to only require certain files within the directory
 modules = requireMany(path.resolve(__dirname, './lib'), {
@@ -42,6 +48,11 @@ requireMany(path.resolve(__dirname, './lib'), function(module, next) {
   // Do something
 });
 ```
+
+## Known issues
+
+At the moment, if multiple modules are included with the same name (e.g. within different directories), last wins when returning as an object. When using an iterator or returning as an array, each instance will be included.
+
 ## Tests
 
 Not yet :( #ashamed

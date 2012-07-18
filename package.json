@@ -1,7 +1,7 @@
 {
   "name": "require-many",
-  "description": "Require multiple modules from a single directory at once",
-  "version": "0.1.0",
+  "description": "Require multiple modules at once",
+  "version": "0.2.0",
   "homepage": "https://github.com/lukebennett/require-many/",
   "author": {
     "name": "Luke Bennett",
