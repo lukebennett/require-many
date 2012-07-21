@@ -15,9 +15,10 @@ require('require-many')(paths[, options][, iterator][, callback])
 `paths` can either be a path to a directory or file, or an array of paths.
 
 `options` can contain any of the following:
- - `asArray` - returns modules as an array rather than within an object
+ - `asArray` - boolean indicating whether to return modules as an array rather than within an object
  - `predicate` - a function that will be called for each file or directory to allow unwanted modules to be filtered out
  - `recurse` - boolean indicating whether to recurse down through any sub-directories
+ - `lazyLoad` - boolean indicating whether to wrap module require in a function for delayed execution
 
 `iterator` will be called for each required module.
 
@@ -56,6 +57,16 @@ modules = requireMany(path.resolve(__dirname, './lib'), {
 
 // Apply an iterator to each module and pass a callback
 requireMany(path.resolve(__dirname, './lib'), function(module, next) {
+  // Do something with module
+  next();
+}, function(err) {
+  // Do something
+});
+
+// Lazy load modules
+requireMany(path.resolve(__dirname, './lib'), function(getModule, next) {
+  // Require module
+  var module = getModule();
   // Do something with module
   next();
 }, function(err) {
