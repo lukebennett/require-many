@@ -1,6 +1,6 @@
 {
   "name": "require-many",
-  "description": "Require multiple modules at once",
+  "description": "Require multiple modules at once. Modules can be returned as properties of an object, as an array or iterated over with a callback.",
   "version": "0.2.0",
   "homepage": "https://github.com/lukebennett/require-many/",
   "author": {
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git://github.com/lukebennett/require-many.git"
   },
-  "keywords": ["require","module","directory","library"],
+  "keywords": ["require","module","directory","library","multiple"],
   "licenses": [
     {
       "type": "MIT",

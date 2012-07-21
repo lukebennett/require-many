@@ -1,6 +1,6 @@
 # require-many
 
-Require multiple modules at once.
+Require multiple modules at once. Modules can be returned as properties of an object, as an array or iterated over with a callback.
 
 ## Installation
 
@@ -9,8 +9,19 @@ Require multiple modules at once.
 ## Usage
 
 ```js
-require('require-many')(dirs[, options][, iterator][, callback])
+require('require-many')(paths[, options][, iterator][, callback])
 ```
+
+`paths` can either be a path to a directory or file, or an array of paths.
+
+`options` can contain any of the following:
+ - `asArray` - returns modules as an array rather than within an object
+ - `predicate` - a function that will be called for each file or directory to allow unwanted modules to be filtered out
+ - `recurse` - boolean indicating whether to recurse down through any sub-directories
+
+`iterator` will be called for each required module.
+
+`callback` will be called once all modules have been required.
 
 ## Examples
 
@@ -19,12 +30,15 @@ var path = require('path')
   , requireMany = require('require-many')
   , modules;
 
-// Return all modules as properties of an object
+// Return all modules from a single directory as properties of an object
 // (property name is exported function name if specified, otherwise the filename)
 modules = requireMany(path.resolve(__dirname, './lib'));
 
-// Return all modules as an array
+// Return all modules from a single directory as an array
 modules = requireMany(path.resolve(__dirname, './lib'), { asArray: true });
+
+// Return specific modules from different locations
+modules = requireMany([path.resolve(__dirname, './lib/module1.js'),path.resolve(__dirname, './other/module2.js')]);
 
 // Recurse down through directory and require modules from sub-directories
 modules = requireMany(path.resolve(__dirname, './lib'), { recurse: true });
