@@ -20,7 +20,7 @@ require('require-many')(paths[, options][, iterator][, callback])
  - `recurse` - boolean indicating whether to recurse down through any sub-directories
  - `lazyLoad` - boolean indicating whether to wrap module require in a function for delayed execution
 
-`iterator` will be called for each required module.
+`iterator` will be called for each required module and is passed the module, the path to the file and a callback.
 
 `callback` will be called once all modules have been required.
 
@@ -56,7 +56,7 @@ modules = requireMany(path.resolve(__dirname, './lib'), {
 });
 
 // Apply an iterator to each module and pass a callback
-requireMany(path.resolve(__dirname, './lib'), function(module, next) {
+requireMany(path.resolve(__dirname, './lib'), function(module, filePath, next) {
   // Do something with module
   next();
 }, function(err) {
@@ -64,7 +64,7 @@ requireMany(path.resolve(__dirname, './lib'), function(module, next) {
 });
 
 // Lazy load modules
-requireMany(path.resolve(__dirname, './lib'), function(getModule, next) {
+requireMany(path.resolve(__dirname, './lib'), function(getModule, filePath, next) {
   // Require module
   var module = getModule();
   // Do something with module
