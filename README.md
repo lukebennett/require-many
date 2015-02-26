@@ -64,7 +64,7 @@ requireMany(path.resolve(__dirname, './lib'), function(module, filePath, next) {
 });
 
 // Lazy load modules
-requireMany(path.resolve(__dirname, './lib'), function(getModule, filePath, next) {
+requireMany(path.resolve(__dirname, './lib'), { lazyLoad: true }, function(getModule, filePath, next) {
   // Require module
   var module = getModule();
   // Do something with module
@@ -84,7 +84,7 @@ Not yet :( #ashamed
 
 ## License (MIT)
 
-Copyright (c) 2012 Luke Bennett &lt;luke@lukebennett.com&gt;
+Copyright (c) 2015 Luke Bennett &lt;luke@lukebennett.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining 
 a copy of this software and associated documentation files (the 

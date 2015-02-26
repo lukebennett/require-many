@@ -1,7 +1,7 @@
 {
   "name": "require-many",
   "description": "Require multiple modules at once. Modules can be returned as properties of an object, as an array or iterated over with a callback.",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/lukebennett/require-many/",
   "author": {
     "name": "Luke Bennett",
